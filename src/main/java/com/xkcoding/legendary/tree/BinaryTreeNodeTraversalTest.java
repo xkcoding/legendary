@@ -1,16 +1,23 @@
 package com.xkcoding.legendary.tree;
 
 public class BinaryTreeNodeTraversalTest {
-	public static void main(String[] args) {
-		BinaryTreeNode binaryTreeNode = new BinaryTreeNode(1);
-		binaryTreeNode.setLeft(new BinaryTreeNode(2));
-		binaryTreeNode.setRight(new BinaryTreeNode(3));
+    public static void main(String[] args) {
+        BinaryTreeNode left = new BinaryTreeNode(2);
+        left.setLeft(new BinaryTreeNode(4));
+        left.setRight(new BinaryTreeNode(5));
 
-		System.out.print("\n先序遍历: ");
-		BinaryTreeNode.nlr(binaryTreeNode);
-		System.out.print("\n中序遍历: ");
-		BinaryTreeNode.lnr(binaryTreeNode);
-		System.out.print("\n后序遍历: ");
-		BinaryTreeNode.lrn(binaryTreeNode);
-	}
+        BinaryTreeNode right = new BinaryTreeNode(3);
+        right.setLeft(new BinaryTreeNode(6));
+
+        BinaryTreeNode root = new BinaryTreeNode(1);
+        root.setLeft(left);
+        root.setRight(right);
+
+        System.out.print("\n先序遍历: ");
+        BinaryTreeNode.nlr(root);
+        System.out.print("\n中序遍历: ");
+        BinaryTreeNode.lnr(root);
+        System.out.print("\n后序遍历: ");
+        BinaryTreeNode.lrn(root);
+    }
 }
