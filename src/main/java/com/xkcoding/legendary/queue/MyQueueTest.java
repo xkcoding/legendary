@@ -1,5 +1,7 @@
 package com.xkcoding.legendary.queue;
 
+import com.xiaoleilu.hutool.util.StrUtil;
+
 import java.util.concurrent.TimeUnit;
 
 public class MyQueueTest {
@@ -12,7 +14,7 @@ public class MyQueueTest {
 		queue.put("d");
 		queue.put("e");
 
-		System.out.println(String.format("当前队列的长度: {}", queue.getSize()));
+		System.out.println(StrUtil.format("当前队列的长度: {}", queue.getSize()));
 		Thread t1 = new Thread(() -> {
 			queue.put("f");
 			queue.put("g");

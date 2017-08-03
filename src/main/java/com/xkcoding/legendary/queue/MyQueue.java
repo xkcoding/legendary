@@ -1,5 +1,7 @@
 package com.xkcoding.legendary.queue;
 
+import com.xiaoleilu.hutool.util.StrUtil;
+
 import java.util.LinkedList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -46,7 +48,7 @@ public class MyQueue {
 			queue.add(obj);
 			// 3.计数器累加
 			count.incrementAndGet();
-			System.out.println(String.format("新加入的元素为：{}", obj));
+			System.out.println(StrUtil.format("新加入的元素为：{}", obj));
 			// 4.唤醒其他线程（若本来元素为空，有线程调用 get 方法，那么原本被阻塞的，需要在此时被唤醒）
 			lock.notify();
 		}
@@ -73,7 +75,7 @@ public class MyQueue {
 			ret = queue.removeFirst();
 			// 3.计数器递减
 			count.decrementAndGet();
-			System.out.println(String.format("移除的元素为：{}", ret));
+			System.out.println(StrUtil.format("移除的元素为：{}", ret));
 			// 4.唤醒其他线程（若元素本来已满，有线程调用 put 方法，那么原本被阻塞的，需要在此时被唤醒）
 			lock.notify();
 		}
