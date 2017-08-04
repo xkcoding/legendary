@@ -16,6 +16,20 @@ public class BinaryTreeNode {
 		this.root = root;
 	}
 
+	public static int nodeCount(BinaryTreeNode tree) {
+		if (tree == null) {
+			return 0;
+		}
+		return nodeCount(tree.left) + nodeCount(tree.right) + 1;
+	}
+
+	public static int deep(BinaryTreeNode tree) {
+		if (tree == null) {
+			return 0;
+		}
+		return (deep(tree.left) + 1) > (deep(tree.right) + 1) ? (deep(tree.left) + 1) : (deep(tree.right) + 1);
+	}
+
 	/**
 	 * 中序遍历
 	 *
